@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DbUtil {
     private final Connection connection;
-    private Statement statement;
+    private PreparedStatement statement;
 
     //Database connection details
     final String url = "jdbc:mysql://localhost:3306/farm_management_system";
@@ -27,8 +27,8 @@ public class DbUtil {
      * -> SELECT  * || [column_names] FROM table_name ORDER BY [column_names] ASC||DESC
      * */
     public ResultSet readData(String query) throws SQLException {
-        statement = connection.createStatement();
-        return statement.executeQuery(query);
+        statement = connection.prepareStatement(query);
+        return statement.executeQuery();
     }
         //To write data to the database
         //To delete data from the database
@@ -39,8 +39,8 @@ public class DbUtil {
      * -> DELETE FROM table_name WHERE condition
      * */
     public int writeData(String query) throws SQLException {
-        statement = connection.createStatement();
-        return statement.executeUpdate(query);
+        statement = connection.prepareStatement(query);
+        return statement.executeUpdate();
     }
         //To close the connection
     private void closeConnection() throws SQLException {
