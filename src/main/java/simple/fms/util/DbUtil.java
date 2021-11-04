@@ -8,8 +8,8 @@ public class DbUtil {
 
     //Database connection details
     final String url = "jdbc:mysql://localhost:3306/farm_management_system";
-    final String user= "mugo367";
-    final String password = "mweiga_123";
+    final String user= "";
+    final String password = "";
 
         //To initialize connection to the database
     public DbUtil() throws SQLException {
